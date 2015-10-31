@@ -1,8 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scritps\Game\Field.cs">
     <Files>
-      <File FileName="Assets\Scritps\Game\Field.cs" Line="58" Column="75" />
+      <File FileName="Assets\Scritps\Game\Field.cs" Line="22" Column="17" />
+      <File FileName="..\..\ITmanagement\itProject\Assets\Scripts\Common\Click.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
