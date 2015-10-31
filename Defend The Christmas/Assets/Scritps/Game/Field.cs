@@ -13,20 +13,31 @@ public class Field : MonoBehaviour {
 		[SerializeField]
 		public int Steps;
 	}
+	[System.Serializable]
+	public struct LevelData
+	{
+		[SerializeField]
+		public Instruction[] MoveInstructions;
+		[SerializeField]
+		public Vector2 StartPosition;
+	}
 	//VARIABLES
-	public Vector2 StartPosition;
-	public Instruction[] MoveInstructions;
+	public LevelData[] GameLevels;
 	public GameObject PathObject;
 	public Texture2D path_horizontal;
 	public Texture2D[] path_corners;
 	//STATIC VARIABLES
-	static Vector2 Step;
-	static int MapWidth = 14;
-	static int MapHeight = 7;
+	static public Vector2 Step;
+	static public int MapWidth = 14;
+	static public int MapHeight = 7;
+	static public Vector2 StartPosition;
+	static public Instruction[] MoveInstructions;
+	static int CurrentLevel = 0;
 	// Use this for initialization
 	void Start () {
 		Step = new Vector2 ((float)1 / MapWidth, (float)1 / MapHeight);
-		StartPosition = new Vector2 (StartPosition.x, MapHeight - StartPosition.y);
+		StartPosition = new Vector2 (GameLevels[CurrentLevel].StartPosition.x, MapHeight - GameLevels[CurrentLevel].StartPosition.y);
+		MoveInstructions = GameLevels [CurrentLevel].MoveInstructions;
 		PlacePath ();
 	}
 	
@@ -77,7 +88,7 @@ public class Field : MonoBehaviour {
 					if ((MoveInstructions[i].Direction==MoveDirection.Right) || (MoveInstructions[i].Direction==MoveDirection.Left))
 						pObj.GetComponent<Image>().sprite = Sprite.Create(path_horizontal, new Rect(0,0,path_horizontal.width, path_horizontal.height), new Vector2(0,0));
 				}
-				pObj.GetComponent<RectTransform>().SetParent(this.transform, false);
+				pObj.GetComponent<RectTransform>().SetParent(GameObject.Find("PathAll").transform, false);
 				pObj.GetComponent<RectTransform>().anchorMin = currentPosition;
 				pObj.GetComponent<RectTransform>().anchorMax = currentPosition + Step;
 			}
