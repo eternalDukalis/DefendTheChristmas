@@ -46,6 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scritps\Game\BulletTarget.cs" />
      <Compile Include="Assets\Scritps\Game\EnemyBehavior.cs" />
      <Compile Include="Assets\Scritps\Game\Field.cs" />
  <Reference Include="UnityEngine.UI">

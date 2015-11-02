@@ -79,4 +79,9 @@ public class EnemyBehavior : MonoBehaviour {
 		itsTransform.anchorMin += new Vector2 (x, y);
 		itsTransform.anchorMax += new Vector2 (x, y);
 	}
+
+	public Vector2 GetPosition()
+	{
+		return (itsTransform.anchorMin + itsTransform.anchorMax + Field.Step) / 2;
+	}
 }

@@ -32,7 +32,7 @@ public class Field : MonoBehaviour {
 	static public int MapHeight = 7;
 	static public Vector2 StartPosition;
 	static public Instruction[] MoveInstructions;
-	static int CurrentLevel = 0;
+	static int CurrentLevel = 1;
 	// Use this for initialization
 	void Start () {
 		Step = new Vector2 ((float)1 / MapWidth, (float)1 / MapHeight);
