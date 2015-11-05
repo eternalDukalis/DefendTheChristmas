@@ -11,8 +11,7 @@ public class BulletTarget : MonoBehaviour {
 	Vector2 position;
 	// Use this for initialization
 	void Start () {
-		trans = this.GetComponent<RectTransform> ();
-		Fire (new Vector2 (12, 5), GameObject.Find("Enemy"), 25);
+		//Fire (new Vector2 (12, 5), GameObject.Find("Enemy"), 25);
 	}
 	
 	// Update is called once per frame
@@ -22,6 +21,7 @@ public class BulletTarget : MonoBehaviour {
 
 	public void Fire(Vector2 StartPosition, GameObject Target, int Damage)
 	{
+		trans = this.GetComponent<RectTransform> ();
 		target = Target;
 		damage = Damage;
 		Vector2 pos = StartPosition;

@@ -12,6 +12,7 @@ public class EnemyBehavior : MonoBehaviour {
 	Field.Instruction[] Movings;
 	RectTransform itsTransform;
 	Vector2 currentPosition;
+	private int MaxHealthPoints;
 	static float VerticalMultiplier = 1.2f;
 	// Use this for initialization
 	void Start () {
@@ -19,6 +20,7 @@ public class EnemyBehavior : MonoBehaviour {
 		StartPosition = Field.StartPosition;
 		Step = Field.Step;
 		Movings = Field.MoveInstructions;
+		MaxHealthPoints = HealthPoints;
 		Init ();
 		StartCoroutine (Moving ());
 	}
@@ -83,5 +85,10 @@ public class EnemyBehavior : MonoBehaviour {
 	public Vector2 GetPosition()
 	{
 		return (itsTransform.anchorMin + itsTransform.anchorMax + Field.Step) / 2;
+	}
+
+	public float GetHealthPercent()
+	{
+		return (float)HealthPoints / MaxHealthPoints;
 	}
 }

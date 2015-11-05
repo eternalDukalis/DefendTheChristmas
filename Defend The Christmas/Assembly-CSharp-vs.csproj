@@ -49,6 +49,7 @@
      <Compile Include="Assets\Scritps\Game\BulletTarget.cs" />
      <Compile Include="Assets\Scritps\Game\EnemyBehavior.cs" />
      <Compile Include="Assets\Scritps\Game\Field.cs" />
+     <Compile Include="Assets\Scritps\Game\Tower.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
