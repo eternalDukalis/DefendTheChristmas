@@ -13,11 +13,19 @@ public class Field : MonoBehaviour {
 		[SerializeField]
 		public int Steps;
 	}
+    [System.Serializable]
+    public struct Wave
+    {
+        public GameObject Unit;
+        public int Count;
+    }
 	[System.Serializable]
 	public struct LevelData
 	{
 		[SerializeField]
 		public Instruction[] MoveInstructions;
+        [SerializeField]
+        public Wave[] Waves;
 		[SerializeField]
 		public Vector2 StartPosition;
 	}
@@ -32,13 +40,17 @@ public class Field : MonoBehaviour {
 	static public int MapHeight = 7;
 	static public Vector2 StartPosition;
 	static public Instruction[] MoveInstructions;
-	static int CurrentLevel = 1;
+	static public int CurrentLevel = 1;
+    static public float UnitInterval = 0.2f;
+    static public float WaveInterval = 2;
+    static public int CurrentWave = 0;
 	// Use this for initialization
 	void Start () {
 		Step = new Vector2 ((float)1 / MapWidth, (float)1 / MapHeight);
 		StartPosition = new Vector2 (GameLevels[CurrentLevel].StartPosition.x, MapHeight - GameLevels[CurrentLevel].StartPosition.y);
 		MoveInstructions = GameLevels [CurrentLevel].MoveInstructions;
 		PlacePath ();
+        StartCoroutine(EnemiesEmission());
 	}
 	
 	// Update is called once per frame
@@ -94,4 +106,28 @@ public class Field : MonoBehaviour {
 			}
 		}
 	}
+
+    IEnumerator EnemiesEmission()
+    {
+        float ut = 0, wt = 0;
+        int UnitsEmissed = 0;
+        while (CurrentWave < GameLevels[CurrentLevel].Waves.Length)
+        {
+            ut += Time.deltaTime;
+            wt += Time.deltaTime;
+            if ((ut > UnitInterval) && (wt > WaveInterval))
+            {
+                Instantiate(GameLevels[CurrentLevel].Waves[CurrentWave].Unit);
+                UnitsEmissed++;
+                ut = 0;
+                if (UnitsEmissed >= GameLevels[CurrentLevel].Waves[CurrentWave].Count)
+                {
+                    CurrentWave++;
+                    UnitsEmissed = 0;
+                    wt = 0;
+                }
+            }
+            yield return null;
+        }
+    }
 }

@@ -17,6 +17,7 @@ public class EnemyBehavior : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		itsTransform = this.GetComponent<RectTransform> ();
+        itsTransform.SetParent(GameObject.Find("EnemiesAll").transform, false);
 		StartPosition = Field.StartPosition;
 		Step = Field.Step;
 		Movings = Field.MoveInstructions;
