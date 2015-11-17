@@ -47,6 +47,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scritps\Game\BulletTarget.cs" />
      <Compile Include="Assets\Scritps\Game\EnemyBehavior.cs" />
+     <Compile Include="Assets\Scritps\Game\EnemyHP.cs" />
      <Compile Include="Assets\Scritps\Game\Field.cs" />
      <Compile Include="Assets\Scritps\Game\Tower.cs" />
  <Reference Include="UnityEngine.UI">

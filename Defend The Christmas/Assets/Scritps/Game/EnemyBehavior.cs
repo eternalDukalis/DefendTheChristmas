@@ -28,7 +28,8 @@ public class EnemyBehavior : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+        if (HealthPoints <= 0)
+            Die();
 	}
 
 	IEnumerator Moving()
@@ -85,6 +86,8 @@ public class EnemyBehavior : MonoBehaviour {
 
 	public Vector2 GetPosition()
 	{
+        if (itsTransform == null)
+            return new Vector2();
 		return (itsTransform.anchorMin + itsTransform.anchorMax + Field.Step) / 2;
 	}
 
@@ -92,4 +95,9 @@ public class EnemyBehavior : MonoBehaviour {
 	{
 		return (float)HealthPoints / MaxHealthPoints;
 	}
+
+    void Die()
+    {
+        Destroy(this.gameObject);
+    }
 }

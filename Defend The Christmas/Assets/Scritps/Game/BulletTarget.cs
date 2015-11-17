@@ -36,10 +36,16 @@ public class BulletTarget : MonoBehaviour {
 	{
 		while (true)
 		{
+            if (target == null)
+            {
+                Destroy(this.gameObject);
+                break;
+            }
 			Vector2 mv = target.GetComponent<EnemyBehavior>().GetPosition() - position;
 			if (mv.magnitude<MoveSpeed)
 			{
 				Destroy(this.gameObject);
+                target.GetComponent<EnemyBehavior>().HealthPoints -= damage;
 				break;
 			}
 			mv.Normalize();

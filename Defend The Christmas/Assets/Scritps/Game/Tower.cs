@@ -54,9 +54,8 @@ public class Tower : MonoBehaviour {
 		for (int i=0; i<gms.Length; i++)
 		{
 			EnemyBehavior eBeh = gms[i].GetComponent<EnemyBehavior>();
-            Vector2 ePos = new Vector2();
-            Debug.Log(ePos = eBeh.GetPosition());
-            float distance = (pos - ePos).magnitude * new Vector2(Field.MapWidth, Field.MapHeight).magnitude;
+            //Debug.Log(eBeh.GetPosition());
+            float distance = (pos - eBeh.GetPosition()).magnitude * new Vector2(Field.MapWidth, Field.MapHeight).magnitude;
 			if ((distance<ShootingRadius) && (eBeh.GetHealthPercent()<=cval))
 			{
 				cval = eBeh.GetHealthPercent();
