@@ -34,6 +34,7 @@ public class Field : MonoBehaviour {
 	public GameObject PathObject;
 	public Texture2D path_horizontal;
 	public Texture2D[] path_corners;
+    public GameObject BaseObject;
 	//STATIC VARIABLES
 	static public Vector2 Step;
 	static public int MapWidth = 14;
@@ -44,9 +45,11 @@ public class Field : MonoBehaviour {
     static public float UnitInterval = 0.2f;
     static public float WaveInterval = 2;
     static public int CurrentWave = 0;
+    static Vector2 BaseSize;
 	// Use this for initialization
 	void Start () {
 		Step = new Vector2 ((float)1 / MapWidth, (float)1 / MapHeight);
+        BaseSize = new Vector2(2, 2);
 		StartPosition = new Vector2 (GameLevels[CurrentLevel].StartPosition.x, MapHeight - GameLevels[CurrentLevel].StartPosition.y);
 		MoveInstructions = GameLevels [CurrentLevel].MoveInstructions;
 		PlacePath ();
@@ -105,6 +108,26 @@ public class Field : MonoBehaviour {
 				pObj.GetComponent<RectTransform>().anchorMax = currentPosition + Step;
 			}
 		}
+        switch (MoveInstructions[MoveInstructions.Length-1].Direction)
+        {
+            case MoveDirection.Up:
+                currentPosition += new Vector2(0, Step.y);
+                break;
+            case MoveDirection.Right:
+                currentPosition += new Vector2(Step.x, 0);
+                break;
+            case MoveDirection.Down:
+                currentPosition += new Vector2(0, -Step.y);
+                break;
+            default:
+                currentPosition += new Vector2(-Step.x, 0);
+                break;
+        }
+        GameObject bObj = Instantiate(BaseObject);
+        RectTransform bTrans = bObj.GetComponent<RectTransform>();
+        bTrans.SetParent(GameObject.Find("Field").transform, false);
+        bTrans.anchorMin = currentPosition + new Vector2(0, Step.y) / 2 - new Vector2(0, Step.y * BaseSize.y / 2);
+        bTrans.anchorMax = currentPosition + new Vector2(0, Step.y) / 2 + new Vector2(Step.x * BaseSize.x, Step.y * BaseSize.y / 2);
 	}
 
     IEnumerator EnemiesEmission()

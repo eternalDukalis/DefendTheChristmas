@@ -68,6 +68,8 @@ public class EnemyBehavior : MonoBehaviour {
 			}
 			yield return null;
 		}
+        GameObject.FindGameObjectWithTag("MainBase").GetComponent<Base>().HealthPoints -= Damage;
+        Destroy(this.gameObject);
 	}
 
 	void Init()
