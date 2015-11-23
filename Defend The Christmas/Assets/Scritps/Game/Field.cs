@@ -65,6 +65,7 @@ public class Field : MonoBehaviour {
 	{
 		Vector2 currentPosition = Step;
 		currentPosition.Scale (StartPosition);
+		TowerManager.EmptySlots = new ArrayList ();
 		for (int i=0; i<MoveInstructions.Length; i++)
 		{
 			for (int j=0; j<MoveInstructions[i].Steps; j++)
@@ -106,6 +107,7 @@ public class Field : MonoBehaviour {
 				pObj.GetComponent<RectTransform>().SetParent(GameObject.Find("PathAll").transform, false);
 				pObj.GetComponent<RectTransform>().anchorMin = currentPosition;
 				pObj.GetComponent<RectTransform>().anchorMax = currentPosition + Step;
+				TowerManager.EmptySlots.Add(currentPosition);
 			}
 		}
         switch (MoveInstructions[MoveInstructions.Length-1].Direction)

@@ -25,7 +25,7 @@ public class BulletTarget : MonoBehaviour {
 		target = Target;
 		damage = Damage;
 		Vector2 pos = StartPosition;
-		pos.Scale (Field.Step);
+		//pos.Scale (Field.Step);
 		position = pos;
 		trans.anchorMin = pos - Field.Step / 2 - Size / 2;
 		trans.anchorMax = pos - Field.Step / 2 + Size / 2;

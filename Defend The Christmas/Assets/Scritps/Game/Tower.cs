@@ -8,12 +8,13 @@ public class Tower : MonoBehaviour {
 	public float ShootingRadius;
 	public int Damage;
 	public GameObject Bullet;
+	public int Cost;
 	RectTransform trans;
 	Vector2 pos;
 	// Use this for initialization
 	void Start () {
 		trans = this.GetComponent<RectTransform> ();
-		Init ();
+		//Init ();
 	}
 	
 	// Update is called once per frame
@@ -21,10 +22,18 @@ public class Tower : MonoBehaviour {
 	
 	}
 
-	public void Init()
+	public void Inst(Vector2 pos)
+	{
+		Position = pos;
+		Init ();
+	}
+
+	void Init()
 	{
 		Vector2 cur = Position;
-		cur.Scale (Field.Step);
+		//cur.Scale (Field.Step);
+		if (trans==null)
+			trans = this.GetComponent<RectTransform> ();
 		trans.anchorMin = cur;
 		trans.anchorMax = cur + Field.Step;
 		pos = (trans.anchorMin + trans.anchorMax) / 2;
@@ -72,6 +81,6 @@ public class Tower : MonoBehaviour {
 			return;
 		GameObject _bullet = Instantiate (Bullet);
 		_bullet.GetComponent<RectTransform> ().SetParent (GameObject.Find ("Field").GetComponent<RectTransform> (), false);
-		_bullet.GetComponent<BulletTarget> ().Fire (Position + new Vector2 (1, 1), target, 25);
+		_bullet.GetComponent<BulletTarget> ().Fire (Position + Field.Step, target, 25);
 	}
 }

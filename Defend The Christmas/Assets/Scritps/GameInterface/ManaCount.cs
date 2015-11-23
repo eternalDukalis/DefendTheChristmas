@@ -19,8 +19,8 @@ public class ManaCount : MonoBehaviour {
 	void Update () {
         if (Mana != PlayerManagement.Mana)
         {
-            txt.text = string.Format(Format, Mana, PlayerManagement.MaxMana);
-            Mana = PlayerManagement.Gold;
+            txt.text = string.Format(Format, PlayerManagement.Mana, PlayerManagement.MaxMana);
+            Mana = PlayerManagement.Mana;
         }
 	}
 }

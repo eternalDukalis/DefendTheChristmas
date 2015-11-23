@@ -19,7 +19,7 @@ public class GoldCount : MonoBehaviour {
 	void Update () {
         if (Gold != PlayerManagement.Gold)
         {
-            txt.text = string.Format(Format, Gold);
+            txt.text = string.Format(Format, PlayerManagement.Gold);
             Gold = PlayerManagement.Gold;
         }
 	}
