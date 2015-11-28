@@ -32,7 +32,6 @@ public class EmptyPlace : MonoBehaviour {
 		tw.transform.SetParent (GameObject.Find("TowersAll").transform, false);
 		tw.GetComponent<Tower> ().Inst (Position);
 		PlayerManagement.Gold -= TowerManager.TowerToPlace.GetComponent<Tower> ().Cost;
-		Debug.Log (PlayerManagement.Gold);
 		//GameObject.Find ("ControlPanel").GetComponent<TowerManager> ().CloseTowerPlaces ();
 		//GameObject.Find ("ControlPanel").GetComponent<MenuManager> ().GoTo (GameObject.Find ("MainScreen"));
 		Destroy (this.gameObject);

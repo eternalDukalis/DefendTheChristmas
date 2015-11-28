@@ -7,6 +7,8 @@ public class EnemyBehavior : MonoBehaviour {
 	public int HealthPoints;
 	public float MoveSpeed;
 	public int Damage;
+    public int Drop;
+    float SpeedKoef = 1;
 	Vector2 StartPosition;
 	Vector2 Step;
 	Field.Instruction[] Movings;
@@ -41,25 +43,25 @@ public class EnemyBehavior : MonoBehaviour {
 			float x = 0, y = 0, border = 0; 
 			if (Movings[i].Direction==Field.MoveDirection.Right)
 			{
-				x = MoveSpeed;
+				x = MoveSpeed*SpeedKoef;
 				border = Movings[i].Steps*Step.x;
 			}
 			if (Movings[i].Direction==Field.MoveDirection.Left)
 			{
-				x = -MoveSpeed;
+				x = -MoveSpeed*SpeedKoef;
 				border = Movings[i].Steps*Step.x;
 			}
 			if (Movings[i].Direction==Field.MoveDirection.Up)
 			{
-				y = MoveSpeed*VerticalMultiplier;
+				y = MoveSpeed*SpeedKoef*VerticalMultiplier;
 				border = Movings[i].Steps*Step.y/VerticalMultiplier;
 			}
 			if (Movings[i].Direction==Field.MoveDirection.Down)
 			{
-				y = -MoveSpeed*VerticalMultiplier;
+				y = -MoveSpeed*SpeedKoef*VerticalMultiplier;
 				border = Movings[i].Steps*Step.y/VerticalMultiplier;
 			}
-			part += MoveSpeed;
+			part += MoveSpeed*SpeedKoef;
 			Move (x, y);
 			if (part>border)
 			{
@@ -100,6 +102,24 @@ public class EnemyBehavior : MonoBehaviour {
 
     void Die()
     {
+        PlayerManagement.Gold += Drop;
         Destroy(this.gameObject);
+    }
+
+    public void FreezeEffect(float koef, float duration)
+    {
+        StartCoroutine(Freeze(koef, duration));
+    }
+
+    IEnumerator Freeze(float koef, float duration)
+    {
+        SpeedKoef = koef;
+        float tm = 0;
+        while (tm < duration)
+        {
+            tm += Time.deltaTime;
+            yield return null;
+        }
+        SpeedKoef = 1;
     }
 }

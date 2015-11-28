@@ -9,6 +9,9 @@ public class Tower : MonoBehaviour {
 	public int Damage;
 	public GameObject Bullet;
 	public int Cost;
+    public bool isFrozen;
+    public float FreezeKoef;
+    public float FreezeDuration;
 	RectTransform trans;
 	Vector2 pos;
 	// Use this for initialization
@@ -81,6 +84,9 @@ public class Tower : MonoBehaviour {
 			return;
 		GameObject _bullet = Instantiate (Bullet);
 		_bullet.GetComponent<RectTransform> ().SetParent (GameObject.Find ("Field").GetComponent<RectTransform> (), false);
-		_bullet.GetComponent<BulletTarget> ().Fire (Position + Field.Step, target, 25);
+        if (isFrozen)
+            _bullet.GetComponent<BulletTarget>().Fire(Position + Field.Step, target, Damage, FreezeKoef, FreezeDuration);
+        else
+		    _bullet.GetComponent<BulletTarget> ().Fire (Position + Field.Step, target, Damage);
 	}
 }
