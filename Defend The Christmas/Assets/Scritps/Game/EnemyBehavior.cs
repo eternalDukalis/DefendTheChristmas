@@ -16,6 +16,7 @@ public class EnemyBehavior : MonoBehaviour {
 	Vector2 currentPosition;
 	private int MaxHealthPoints;
 	static float VerticalMultiplier = 1.2f;
+    static float ShootingPeriopd = 0.5f;
 	// Use this for initialization
 	void Start () {
 		itsTransform = this.GetComponent<RectTransform> ();
@@ -61,8 +62,16 @@ public class EnemyBehavior : MonoBehaviour {
 				y = -MoveSpeed*SpeedKoef*VerticalMultiplier;
 				border = Movings[i].Steps*Step.y/VerticalMultiplier;
 			}
-			part += MoveSpeed*SpeedKoef;
-			Move (x, y);
+            GameObject gm = WallNear();
+            if (gm == null)
+            {
+                part += MoveSpeed * SpeedKoef;
+                Move(x, y);
+            }
+            else
+            {
+                yield return StartCoroutine(KillWall(gm));
+            }
 			if (part>border)
 			{
 				part = 0;
@@ -73,6 +82,34 @@ public class EnemyBehavior : MonoBehaviour {
         GameObject.FindGameObjectWithTag("MainBase").GetComponent<Base>().HealthPoints -= Damage;
         Destroy(this.gameObject);
 	}
+
+    IEnumerator KillWall(GameObject target)
+    {
+        float per = ShootingPeriopd;
+        while (target!=null)
+        {
+            per += Time.deltaTime;
+            if (per >= ShootingPeriopd)
+            {
+                per = 0;
+                target.GetComponent<Wall>().Hit(Damage);
+            }
+            yield return null;
+        }
+    }
+
+    GameObject WallNear()
+    {
+        GameObject[] gms = GameObject.FindGameObjectsWithTag("Wall");
+        GameObject cur = null;
+        for (int i = 0; i < gms.Length; i++)
+            if ((GetPosition()-gms[i].GetComponent<Wall>().GetPosition()).magnitude<Field.Step.magnitude)
+            {
+                cur = gms[i];
+                break;
+            }
+        return cur;
+    }
 
 	void Init()
 	{
