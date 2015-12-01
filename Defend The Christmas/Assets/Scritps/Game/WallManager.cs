@@ -33,6 +33,22 @@ public class WallManager : MonoBehaviour {
         PlacesObject.SetActive(false);
     }
 
+    public virtual void SetSpellType(int st)
+    {
+        switch (st)
+        {
+            case 0: 
+                EmptyWallPlace.Spell = EmptyWallPlace.SpellType.Wall;
+                break;
+            case 1:
+                EmptyWallPlace.Spell = EmptyWallPlace.SpellType.Nova;
+                break;
+            case 2:
+                EmptyWallPlace.Spell = EmptyWallPlace.SpellType.Meteora;
+                break;
+        }
+    }
+
     void MakeSlots()
     {
         for (int i = 0; i < EmptySlots.Count; i++)

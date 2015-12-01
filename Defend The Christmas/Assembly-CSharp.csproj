@@ -53,6 +53,8 @@
      <Compile Include="Assets\Scritps\Game\EnemyBehavior.cs" />
      <Compile Include="Assets\Scritps\Game\EnemyHP.cs" />
      <Compile Include="Assets\Scritps\Game\Field.cs" />
+     <Compile Include="Assets\Scritps\Game\Meteora.cs" />
+     <Compile Include="Assets\Scritps\Game\Nova.cs" />
      <Compile Include="Assets\Scritps\Game\PlayerManagement.cs" />
      <Compile Include="Assets\Scritps\Game\Tower.cs" />
      <Compile Include="Assets\Scritps\Game\TowerManager.cs" />
@@ -63,17 +65,11 @@
      <Compile Include="Assets\Scritps\GameInterface\GoldCount.cs" />
      <Compile Include="Assets\Scritps\GameInterface\ManaCount.cs" />
      <Compile Include="Assets\Scritps\GameInterface\MenuManager.cs" />
- <Reference Include="UnityEngine.Advertisements">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
- </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Analytics">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="Mono.Cecil">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/Mono.Cecil.dll</HintPath>

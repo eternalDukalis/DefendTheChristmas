@@ -3,6 +3,8 @@ using System.Collections;
 
 public class EmptyWallPlace : MonoBehaviour {
 
+    public enum SpellType { Wall, Nova, Meteora }
+    static public SpellType Spell;
     public Vector2 Position;
     RectTransform trans;
 	// Use this for initialization
@@ -25,6 +27,22 @@ public class EmptyWallPlace : MonoBehaviour {
     }
 
     public virtual void Place()
+    {
+        switch (Spell)
+        {
+            case SpellType.Wall:
+                PlaceWall();
+                break;
+            case SpellType.Nova:
+                Nova.Freeze(Position);
+                break;
+            case SpellType.Meteora:
+                Meteora.Hit(Position);
+                break;
+        }
+    }
+
+    void PlaceWall()
     {
         if (WallManager.WallToPlace.GetComponent<Wall>().Cost > PlayerManagement.Mana)
             return;

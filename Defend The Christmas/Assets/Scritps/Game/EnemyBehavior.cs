@@ -17,6 +17,7 @@ public class EnemyBehavior : MonoBehaviour {
 	private int MaxHealthPoints;
 	static float VerticalMultiplier = 1.2f;
     static float ShootingPeriopd = 0.5f;
+    static float NearMult = 0.5f;
 	// Use this for initialization
 	void Start () {
 		itsTransform = this.GetComponent<RectTransform> ();
@@ -103,7 +104,7 @@ public class EnemyBehavior : MonoBehaviour {
         GameObject[] gms = GameObject.FindGameObjectsWithTag("Wall");
         GameObject cur = null;
         for (int i = 0; i < gms.Length; i++)
-            if ((GetPosition()-gms[i].GetComponent<Wall>().GetPosition()).magnitude<Field.Step.magnitude)
+            if ((GetPosition() - gms[i].GetComponent<Wall>().GetPosition()).magnitude < Field.Step.magnitude * NearMult)
             {
                 cur = gms[i];
                 break;
