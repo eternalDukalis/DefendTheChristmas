@@ -18,4 +18,9 @@ public class Base : MonoBehaviour {
     {
         return (float)HealthPoints / MaxHealthPoints;
     }
+
+    public virtual void Skip()
+    {
+        GameObject.Find("Field").GetComponent<Field>().Skip();
+    }
 }

@@ -61,6 +61,8 @@
      <Compile Include="Assets\Scritps\Game\Wall.cs" />
      <Compile Include="Assets\Scritps\Game\WallHP.cs" />
      <Compile Include="Assets\Scritps\Game\WallManager.cs" />
+     <Compile Include="Assets\Scritps\Game\WaveNum.cs" />
+     <Compile Include="Assets\Scritps\Game\WaveTime.cs" />
      <Compile Include="Assets\Scritps\GameInterface\ExitGame.cs" />
      <Compile Include="Assets\Scritps\GameInterface\GoldCount.cs" />
      <Compile Include="Assets\Scritps\GameInterface\ManaCount.cs" />

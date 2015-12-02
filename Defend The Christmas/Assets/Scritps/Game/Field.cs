@@ -43,7 +43,9 @@ public class Field : MonoBehaviour {
 	static public Instruction[] MoveInstructions;
 	static public int CurrentLevel = 1;
     static public float UnitInterval = 0.2f;
-    static public float WaveInterval = 2;
+    static public float WaveInterval = 10;
+    static float RemainingTime = 3;
+    static float wt;
     static public int CurrentWave = 0;
     static Vector2 BaseSize;
 	// Use this for initialization
@@ -136,14 +138,18 @@ public class Field : MonoBehaviour {
 
     IEnumerator EnemiesEmission()
     {
-        float ut = 0, wt = 0;
+        float ut = 0; 
+        wt = 0;
         int UnitsEmissed = 0;
         while (CurrentWave < GameLevels[CurrentLevel].Waves.Length)
         {
             ut += Time.deltaTime;
             wt += Time.deltaTime;
+            WaveTime.WTime = WaveInterval - wt;
             if ((ut > UnitInterval) && (wt > WaveInterval))
             {
+                if (CurrentWave > WaveNum.Wave)
+                    WaveNum.Wave = CurrentWave;
                 Instantiate(GameLevels[CurrentLevel].Waves[CurrentWave].Unit);
                 UnitsEmissed++;
                 ut = 0;
@@ -156,5 +162,11 @@ public class Field : MonoBehaviour {
             }
             yield return null;
         }
+    }
+
+    public void Skip()
+    {
+        if (wt < WaveInterval - RemainingTime)
+            wt = WaveInterval - RemainingTime;
     }
 }
