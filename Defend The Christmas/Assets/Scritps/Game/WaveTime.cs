@@ -14,6 +14,8 @@ public class WaveTime : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (WTime < 0)
+            WTime = 0;
         if (txt.text != string.Format(form, (int)WTime)) 
         {
             txt.text = string.Format(form, (int)WTime);

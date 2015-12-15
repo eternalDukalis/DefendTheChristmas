@@ -27,6 +27,6 @@ public class Meteora : MonoBehaviour {
         for (int i = 0; i < gms.Length; i++)
             if ((gms[i].GetComponent<EnemyBehavior>().GetPosition() - pos).magnitude * new Vector2(Field.MapWidth, Field.MapHeight).magnitude <= Radius)
                 objs.Add(gms[i].GetComponent<EnemyBehavior>());
-        objs.ForEach(x => x.HealthPoints -= Damage);
+        objs.ForEach(x => x.MeteoraEffect(Damage, 0.5f));
     }
 }

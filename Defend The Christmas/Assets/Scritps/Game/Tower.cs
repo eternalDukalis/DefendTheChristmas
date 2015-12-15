@@ -140,4 +140,9 @@ public class Tower : MonoBehaviour {
     {
         return new Vector2(Round(vec.x), Round(vec.y));
     }
+
+    static public void Reset()
+    {
+        AllBuffs.Clear();
+    }
 }

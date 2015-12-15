@@ -3,6 +3,8 @@ using System.Collections;
 
 public class PlayerManagement : MonoBehaviour {
 
+    public GameObject WinScreen;
+    public GameObject LoseScreen;
     static public int Gold = 100;
     static public int MaxMana = 100;
     static public int Mana;
@@ -33,5 +35,21 @@ public class PlayerManagement : MonoBehaviour {
             }
             yield return null;
         }
+    }
+
+    public void Win()
+    {
+        WinScreen.SetActive(true);
+    }
+
+    public void Lose()
+    {
+        LoseScreen.SetActive(true);
+    }
+
+    static public void Reset()
+    {
+        Gold = 100;
+        Mana = MaxMana;
     }
 }

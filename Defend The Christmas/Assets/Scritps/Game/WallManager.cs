@@ -64,4 +64,9 @@ public class WallManager : MonoBehaviour {
         cur.transform.SetParent(PlacesObject.transform, false);
         cur.GetComponent<EmptyWallPlace>().Set(pos);
     }
+
+    static public void Reset()
+    {
+        EmptySlots.Clear();
+    }
 }

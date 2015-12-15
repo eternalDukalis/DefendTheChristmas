@@ -83,4 +83,9 @@ public class TowerManager : MonoBehaviour {
 		}
 		return false;
 	}
+
+    static public void Reset()
+    {
+        EmptySlots.Clear();
+    }
 }

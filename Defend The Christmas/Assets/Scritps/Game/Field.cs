@@ -44,6 +44,7 @@ public class Field : MonoBehaviour {
 	static public int CurrentLevel = 1;
     static public float UnitInterval = 0.2f;
     static public float WaveInterval = 10;
+    bool hasFinished = false;
     static float RemainingTime = 3;
     static float wt;
     static public int CurrentWave = 0;
@@ -60,7 +61,8 @@ public class Field : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+        if ((hasFinished) && (GameObject.FindGameObjectsWithTag("Enemy").Length == 0))
+            GameObject.Find("ControlPanel").GetComponent<PlayerManagement>().Win();
 	}
 
 	void PlacePath()
@@ -114,7 +116,7 @@ public class Field : MonoBehaviour {
                 WallManager.EmptySlots.Add(currentPosition);
 			}
 		}
-        switch (MoveInstructions[MoveInstructions.Length-1].Direction)
+        /*switch (MoveInstructions[MoveInstructions.Length-1].Direction)
         {
             case MoveDirection.Up:
                 currentPosition += new Vector2(0, Step.y);
@@ -128,7 +130,7 @@ public class Field : MonoBehaviour {
             default:
                 currentPosition += new Vector2(-Step.x, 0);
                 break;
-        }
+        }*/
         GameObject bObj = Instantiate(BaseObject);
         RectTransform bTrans = bObj.GetComponent<RectTransform>();
         bTrans.SetParent(GameObject.Find("Field").transform, false);
@@ -162,11 +164,30 @@ public class Field : MonoBehaviour {
             }
             yield return null;
         }
+        hasFinished = true;
     }
 
     public void Skip()
     {
         if (wt < WaveInterval - RemainingTime)
             wt = WaveInterval - RemainingTime;
+    }
+
+    public void Stop()
+    {
+        StopAllCoroutines();
+    }
+
+    static public void Reset()
+    {
+        PlayerManagement.Reset();
+        Tower.Reset();
+        TowerManager.Reset();
+        WallManager.Reset();
+        WaveNum.Reset();
+        Step = new Vector2();
+        StartPosition = new Vector2();
+        CurrentWave = 0;
+        wt = 0;
     }
 }

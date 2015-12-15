@@ -19,4 +19,9 @@ public class WaveNum : MonoBehaviour {
             txt.text = string.Format(form, Wave + 1);
         }
 	}
+
+    static public void Reset()
+    {
+        Wave = -1;
+    }
 }

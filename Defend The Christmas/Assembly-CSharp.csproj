@@ -45,6 +45,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scritps\Common\FitText.cs" />
      <Compile Include="Assets\Scritps\Game\Base.cs" />
      <Compile Include="Assets\Scritps\Game\BaseHP.cs" />
      <Compile Include="Assets\Scritps\Game\BulletTarget.cs" />
@@ -56,6 +57,7 @@
      <Compile Include="Assets\Scritps\Game\Meteora.cs" />
      <Compile Include="Assets\Scritps\Game\Nova.cs" />
      <Compile Include="Assets\Scritps\Game\PlayerManagement.cs" />
+     <Compile Include="Assets\Scritps\Game\SpriteAnimation.cs" />
      <Compile Include="Assets\Scritps\Game\Tower.cs" />
      <Compile Include="Assets\Scritps\Game\TowerManager.cs" />
      <Compile Include="Assets\Scritps\Game\Wall.cs" />
@@ -65,6 +67,7 @@
      <Compile Include="Assets\Scritps\Game\WaveTime.cs" />
      <Compile Include="Assets\Scritps\GameInterface\ExitGame.cs" />
      <Compile Include="Assets\Scritps\GameInterface\GoldCount.cs" />
+     <Compile Include="Assets\Scritps\GameInterface\LoadLevel.cs" />
      <Compile Include="Assets\Scritps\GameInterface\ManaCount.cs" />
      <Compile Include="Assets\Scritps\GameInterface\MenuManager.cs" />
  <Reference Include="UnityEngine.UI">

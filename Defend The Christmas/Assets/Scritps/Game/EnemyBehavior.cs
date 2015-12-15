@@ -8,6 +8,8 @@ public class EnemyBehavior : MonoBehaviour {
 	public float MoveSpeed;
 	public int Damage;
     public int Drop;
+    public Color FreezeColor;
+    public Color MeteoraColor;
     float SpeedKoef = 1;
 	Vector2 StartPosition;
 	Vector2 Step;
@@ -18,6 +20,7 @@ public class EnemyBehavior : MonoBehaviour {
 	static float VerticalMultiplier = 1.2f;
     static float ShootingPeriopd = 0.5f;
     static float NearMult = 0.5f;
+    Color StandartColor;
 	// Use this for initialization
 	void Start () {
 		itsTransform = this.GetComponent<RectTransform> ();
@@ -26,6 +29,7 @@ public class EnemyBehavior : MonoBehaviour {
 		Step = Field.Step;
 		Movings = Field.MoveInstructions;
 		MaxHealthPoints = HealthPoints;
+        StandartColor = GetComponent<Image>().color;
 		Init ();
 		StartCoroutine (Moving ());
 	}
@@ -151,6 +155,7 @@ public class EnemyBehavior : MonoBehaviour {
 
     IEnumerator Freeze(float koef, float duration)
     {
+        GetComponent<Image>().color = FreezeColor;
         SpeedKoef = koef;
         float tm = 0;
         while (tm < duration)
@@ -159,5 +164,24 @@ public class EnemyBehavior : MonoBehaviour {
             yield return null;
         }
         SpeedKoef = 1;
+        GetComponent<Image>().color = StandartColor;
+    }
+
+    public void MeteoraEffect(float damage, float duration)
+    {
+        HealthPoints -= (int)damage;
+        StartCoroutine(Meteora(duration));
+    }
+
+    IEnumerator Meteora(float duration)
+    {
+        GetComponent<Image>().color = MeteoraColor;
+        float tm = 0;
+        while (tm < duration)
+        {
+            tm += Time.deltaTime;
+            yield return null;
+        }
+        GetComponent<Image>().color = StandartColor;
     }
 }

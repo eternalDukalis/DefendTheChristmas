@@ -11,7 +11,8 @@ public class Base : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+        if (HealthPoints <= 0)
+            GameObject.Find("ControlPanel").GetComponent<PlayerManagement>().Lose();
 	}
 
     public float GetHealthPercent()
