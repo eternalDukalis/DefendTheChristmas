@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scritps\Common\FitText.cs" />
+     <Compile Include="Assets\Scritps\Common\Settings.cs" />
      <Compile Include="Assets\Scritps\Game\Base.cs" />
      <Compile Include="Assets\Scritps\Game\BaseHP.cs" />
      <Compile Include="Assets\Scritps\Game\BulletTarget.cs" />
@@ -70,6 +71,8 @@
      <Compile Include="Assets\Scritps\GameInterface\LoadLevel.cs" />
      <Compile Include="Assets\Scritps\GameInterface\ManaCount.cs" />
      <Compile Include="Assets\Scritps\GameInterface\MenuManager.cs" />
+     <Compile Include="Assets\Scritps\Menu\PlayButton.cs" />
+     <Compile Include="Assets\Scritps\Menu\Switcher.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
