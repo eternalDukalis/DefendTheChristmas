@@ -16,6 +16,7 @@ public class PlayButton : MonoBehaviour {
     public virtual void PlayGame(int level)
     {
         Field.CurrentLevel = level;
+        Field.Reset();
         Application.LoadLevel("game");
     }
 }

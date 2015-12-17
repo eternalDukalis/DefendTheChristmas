@@ -41,7 +41,7 @@ public class Field : MonoBehaviour {
 	static public int MapHeight = 7;
 	static public Vector2 StartPosition;
 	static public Instruction[] MoveInstructions;
-	static public int CurrentLevel = 1;
+	static public int CurrentLevel = 4;
     static public float UnitInterval = 0.2f;
     static public float WaveInterval = 10;
     bool hasFinished = false;
