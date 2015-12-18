@@ -24,11 +24,11 @@ public class GoldCount : MonoBehaviour {
 	void Update () {
         if (Gold != PlayerManagement.Gold)
         {
+            Gold = PlayerManagement.Gold;
             if (Settings.Russian)
                 txt.text = string.Format(RusFormat, Gold);
             else
                 txt.text = string.Format(EngFormat, Gold);
-            Gold = PlayerManagement.Gold;
         }
 	}
 }

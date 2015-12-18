@@ -52,6 +52,8 @@ public class Settings : MonoBehaviour {
             SoundOn = PlayerPrefs.GetInt("SoundOn").Equals(1);
         if (PlayerPrefs.HasKey("Russian"))
             Russian = PlayerPrefs.GetInt("Russian").Equals(1);
+        else
+            Russian = Application.systemLanguage == SystemLanguage.Russian;
         if (PlayerPrefs.HasKey("MaxLevel"))
             MaxLevel = PlayerPrefs.GetInt("MaxLevel");
     }
