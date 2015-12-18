@@ -27,6 +27,7 @@ public class LoadLevel : MonoBehaviour {
                 return;
             }
         }
+        Settings.UpdateMaxLevel(Field.CurrentLevel);
         Application.LoadLevel("game");
     }
 }
