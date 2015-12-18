@@ -55,6 +55,7 @@ public class Wall : MonoBehaviour {
 
     void Die()
     {
+        SoundManager.DestructionWall();
         GameObject.Find("ControlPanel").GetComponent<WallManager>().SetSlot(Position);
         Destroy(this.gameObject);
     }

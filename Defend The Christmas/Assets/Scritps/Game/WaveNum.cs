@@ -16,6 +16,7 @@ public class WaveNum : MonoBehaviour {
 	void Update () {
         if (txt.text != string.Format(form, Wave + 1))
         {
+            SoundManager.NewWave();
             txt.text = string.Format(form, Wave + 1);
         }
 	}

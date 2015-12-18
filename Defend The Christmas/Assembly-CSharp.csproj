@@ -46,7 +46,9 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scritps\Common\FitText.cs" />
+     <Compile Include="Assets\Scritps\Common\Music.cs" />
      <Compile Include="Assets\Scritps\Common\Settings.cs" />
+     <Compile Include="Assets\Scritps\Common\SoundManager.cs" />
      <Compile Include="Assets\Scritps\Common\Translation.cs" />
      <Compile Include="Assets\Scritps\Game\Base.cs" />
      <Compile Include="Assets\Scritps\Game\BaseHP.cs" />
@@ -74,11 +76,17 @@
      <Compile Include="Assets\Scritps\GameInterface\MenuManager.cs" />
      <Compile Include="Assets\Scritps\Menu\PlayButton.cs" />
      <Compile Include="Assets\Scritps\Menu\Switcher.cs" />
+ <Reference Include="UnityEngine.Advertisements">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Analytics">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="Mono.Cecil">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/Mono.Cecil.dll</HintPath>

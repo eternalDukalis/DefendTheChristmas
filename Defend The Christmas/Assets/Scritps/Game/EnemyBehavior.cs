@@ -85,6 +85,7 @@ public class EnemyBehavior : MonoBehaviour {
 			yield return null;
 		}
         GameObject.FindGameObjectWithTag("MainBase").GetComponent<Base>().HealthPoints -= Damage;
+        SoundManager.BangBase();
         Destroy(this.gameObject);
 	}
 
@@ -144,6 +145,7 @@ public class EnemyBehavior : MonoBehaviour {
 
     void Die()
     {
+        SoundManager.MonsterDeath();
         PlayerManagement.Gold += Drop;
         Destroy(this.gameObject);
     }

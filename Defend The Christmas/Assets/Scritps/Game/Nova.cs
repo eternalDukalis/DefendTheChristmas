@@ -23,6 +23,7 @@ public class Nova : MonoBehaviour {
         if (PlayerManagement.Mana < Cost)
             return;
         PlayerManagement.Mana -= Cost;
+        SoundManager.Nova();
         GameObject[] gms = GameObject.FindGameObjectsWithTag("Enemy");
         List<EnemyBehavior> objs = new List<EnemyBehavior>();
         for (int i = 0; i < gms.Length; i++)
