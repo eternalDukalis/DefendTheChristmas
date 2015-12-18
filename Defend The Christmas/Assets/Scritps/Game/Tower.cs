@@ -143,6 +143,7 @@ public class Tower : MonoBehaviour {
 
     static public void Reset()
     {
-        AllBuffs.Clear();
+        if (AllBuffs!=null)
+            AllBuffs.Clear();
     }
 }

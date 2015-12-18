@@ -47,6 +47,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scritps\Common\FitText.cs" />
      <Compile Include="Assets\Scritps\Common\Settings.cs" />
+     <Compile Include="Assets\Scritps\Common\Translation.cs" />
      <Compile Include="Assets\Scritps\Game\Base.cs" />
      <Compile Include="Assets\Scritps\Game\BaseHP.cs" />
      <Compile Include="Assets\Scritps\Game\BulletTarget.cs" />

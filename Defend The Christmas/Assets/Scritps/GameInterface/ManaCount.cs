@@ -4,22 +4,30 @@ using UnityEngine.UI;
 
 public class ManaCount : MonoBehaviour {
 
-    string Format;
+    string RusFormat;
+    string EngFormat;
     int Mana;
     Text txt;
 	// Use this for initialization
 	void Start () {
-        Format = "Количество маны: \n{0} / {1}";
+        RusFormat = "Количество маны: \n{0} / {1}";
+        EngFormat = "Mana count: \n{0} / {1}";
         Mana = PlayerManagement.Mana;
         txt = this.GetComponent<Text>();
-        txt.text = string.Format(Format, Mana, PlayerManagement.MaxMana);
+        if (Settings.Russian)
+            txt.text = string.Format(RusFormat, Mana, PlayerManagement.MaxMana);
+        else
+            txt.text = string.Format(EngFormat, Mana, PlayerManagement.MaxMana);
 	}
 	
 	// Update is called once per frame
 	void Update () {
         if (Mana != PlayerManagement.Mana)
         {
-            txt.text = string.Format(Format, PlayerManagement.Mana, PlayerManagement.MaxMana);
+            if (Settings.Russian)
+                txt.text = string.Format(RusFormat, Mana, PlayerManagement.MaxMana);
+            else
+                txt.text = string.Format(EngFormat, Mana, PlayerManagement.MaxMana);
             Mana = PlayerManagement.Mana;
         }
 	}
