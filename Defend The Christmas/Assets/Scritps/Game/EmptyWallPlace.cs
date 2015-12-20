@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class EmptyWallPlace : MonoBehaviour {
 
@@ -7,14 +8,29 @@ public class EmptyWallPlace : MonoBehaviour {
     static public SpellType Spell;
     public Vector2 Position;
     RectTransform trans;
+    Button btn;
 	// Use this for initialization
 	void Start () {
+        btn = GetComponent<Button>();
         trans = GetComponent<RectTransform>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+        if (Spell == SpellType.Wall)
+        {
+            if (WallManager.WallToPlace.GetComponent<Wall>().Cost > PlayerManagement.Mana)
+                btn.interactable = false;
+            else
+                btn.interactable = true;
+        }
+        else
+        {
+            if (PlayerManagement.Mana < 50)
+                btn.interactable = false;
+            else
+                btn.interactable = true;
+        }
 	}
 
     public void Set(Vector2 pos)

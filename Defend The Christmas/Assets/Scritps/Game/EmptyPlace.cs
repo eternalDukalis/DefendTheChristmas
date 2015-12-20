@@ -1,18 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class EmptyPlace : MonoBehaviour {
 
 	public Vector2 Position;
 	RectTransform trans;
+    Button btn;
 	// Use this for initialization
 	void Start () {
 		trans = GetComponent<RectTransform> ();
+        btn = GetComponent<Button>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+        if (TowerManager.TowerToPlace.GetComponent<Tower>().Cost > PlayerManagement.Gold)
+            btn.interactable = false;
+        else
+            btn.interactable = true;
 	}
 
 	public void Set(Vector2 pos)

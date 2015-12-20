@@ -45,6 +45,14 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\AdmobVNTIS\AdmobVNTIS.cs" />
+     <Compile Include="Assets\AdmobVNTIS\AdmobVNTIS_Interstitial.cs" />
+     <Compile Include="Assets\AdmobVNTIS\Demo\clickToHideBanner.cs" />
+     <Compile Include="Assets\AdmobVNTIS\Demo\clickToShowBanner.cs" />
+     <Compile Include="Assets\AdmobVNTIS\Demo\clickToShowMargin.cs" />
+     <Compile Include="Assets\AdmobVNTIS\Demo\clickToShowMarginAndThenAlign.cs" />
+     <Compile Include="Assets\AdmobVNTIS\Demo\clickToShowRules.cs" />
+     <Compile Include="Assets\AdmobVNTIS\Demo\clicktoloadinterstitial.cs" />
      <Compile Include="Assets\Scritps\Common\FitText.cs" />
      <Compile Include="Assets\Scritps\Common\Music.cs" />
      <Compile Include="Assets\Scritps\Common\Settings.cs" />
@@ -76,6 +84,9 @@
      <Compile Include="Assets\Scritps\GameInterface\MenuManager.cs" />
      <Compile Include="Assets\Scritps\Menu\PlayButton.cs" />
      <Compile Include="Assets\Scritps\Menu\Switcher.cs" />
+     <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
+     <None Include="Assets\AdmobVNTIS\README.txt" />
+     <None Include="Assets\Plugins\Android\res\values\version.xml" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

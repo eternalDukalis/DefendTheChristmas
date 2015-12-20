@@ -24,11 +24,11 @@ public class ManaCount : MonoBehaviour {
 	void Update () {
         if (Mana != PlayerManagement.Mana)
         {
+            Mana = PlayerManagement.Mana;
             if (Settings.Russian)
                 txt.text = string.Format(RusFormat, Mana, PlayerManagement.MaxMana);
             else
                 txt.text = string.Format(EngFormat, Mana, PlayerManagement.MaxMana);
-            Mana = PlayerManagement.Mana;
         }
 	}
 }
